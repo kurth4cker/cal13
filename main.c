@@ -2,7 +2,10 @@
 // SPDX-FileCopyrightText: 2026 kurth4cker
 
 #include <stdio.h>
+#include <stdint.h>
+#include <time.h>
 
 int main(void) {
-	fprintf(stdout, "hello world\n");
+	time_t now = time(NULL);
+	fprintf(stdout, "now: %jd", (intmax_t)now);
 }
