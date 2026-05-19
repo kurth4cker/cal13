@@ -26,22 +26,22 @@ jobs:
           - os: alpine
             cc: gcc
             image: alpine:latest
-            install: apk add libc-dev gcc cmocka-dev
+            install: apk add libc-dev gcc cmocka-dev make
 
           - os: alpine
             cc: clang
             image: alpine:latest
-            install: apk add libc-dev clang cmocka-dev
+            install: apk add libc-dev clang cmocka-dev make
 
           - os: debian
             cc: gcc
             image: debian:latest
-            install: apt update && apt install -y gcc libcmocka-dev
+            install: apt update && apt install -y gcc libcmocka-dev make
 
           - os: debian
             cc: clang
             image: debian:latest
-            install: apt update && apt install -y clang libcmocka-dev
+            install: apt update && apt install -y clang libcmocka-dev make
 
     env:
       CC: ${{ matrix.cc }}
