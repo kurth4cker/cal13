@@ -6,10 +6,11 @@
 
 #include "lib.h"
 
+static const uint32_t UNIX_EPOCH = 1970;
 static const uint32_t SECONDS_OF_DAY = 60 * 60 * 24;
 
 struct cal13_time cal13_from_unix(time_t seconds) {
-	Cal13_Year year = seconds / (SECONDS_OF_DAY * 365);
+	Cal13_Year year = UNIX_EPOCH + seconds / (SECONDS_OF_DAY * 365);
 
 	struct cal13_time ctm = {
 		.year = year,
