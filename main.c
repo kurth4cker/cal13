@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: ISC
 // SPDX-FileCopyrightText: 2026 kurth4cker
 
+#ifndef TEST_BINARY
 #include <stdio.h>
 #include <stdint.h>
 #include <time.h>
@@ -8,13 +9,18 @@
 
 #include "lib.h"
 
-#ifndef TEST_BINARY
 int main(void) {
 }
+
 #else
+// TEST part
 #include <stdarg.h>
 #include <setjmp.h>
+#include <time.h>
 #include <cmocka.h>
+#include <stdint.h>
+
+#include "lib.h"
 
 static void test_is_year_2026(void **state) {
 	time_t seconds = 1779193246;
@@ -23,6 +29,8 @@ static void test_is_year_2026(void **state) {
 }
 
 int main(void) {
+	cmocka_set_message_output(CM_OUTPUT_TAP);
+
 	const struct CMUnitTest tests[] = {
 		cmocka_unit_test(test_is_year_2026),
 	};
