@@ -9,6 +9,9 @@ PROGRAM = cal
 SOURCES = main.c lib.c
 INCLUDES = lib.h
 
+TEST_PROGRAM = ./test
+TEST_SOURCES = $(SOURCES)
+
 TEST_CFLAGS = $(CFLAGS) -DTEST_BINARY
 TEST_LDFLAGS = $(LDFLAGS)
 TEST_LIBS = $(LDLIBS) -lcmocka
@@ -23,12 +26,12 @@ $(PROGRAM): $(SOURCES) $(INCLUDES)
 check: test
 	./test
 
-test: $(SOURCES)
-	$(CC) -std=c99 $(TEST_CFLAGS) $(TEST_LDFLAGS) -o $@ $(SOURCES) $(TEST_LIBS)
+$(TEST_PROGRAM): $(TEST_SOURCES)
+	$(CC) -std=c99 $(TEST_CFLAGS) $(TEST_LDFLAGS) -o $@ $(TEST_SOURCES) $(TEST_LIBS)
 
 .PHONY: clean
 clean:
-	rm -f *.o $(PROGRAM)
+	rm -f *.o $(PROGRAM) $(TEST_PROGRAM)
 
 .PHONY: run
 run: $(PROGRAM)
