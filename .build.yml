@@ -1,0 +1,21 @@
+image: debian/testing
+packages:
+- libcmocka-dev
+sources:
+- https://git.sr.ht/~kurth4cker/cal13
+tasks:
+- signoff: |
+    cd cal13
+    if [ "$BUILD_REASON" = "patchset" ]; then
+        if ! git log --format='%b' origin/v0^^.. | grep 'Signed-off-by' >/dev/null
+        then
+            echo "Patch missing Signed-off-by"
+            exit 1
+        fi
+    fi
+- build: |
+    cd cal13
+    make
+- check: |
+    cd cal13
+    make check
