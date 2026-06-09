@@ -1,8 +1,6 @@
 image: alpine/latest
 packages:
 - cmocka-dev
-sources:
-- https://git.sr.ht/~kurth4cker/cal13
 tasks:
 - signoff: |
     cd cal13
