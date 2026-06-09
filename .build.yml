@@ -1,6 +1,6 @@
-image: debian/testing
+image: alpine/latest
 packages:
-- libcmocka-dev
+- cmocka-dev
 sources:
 - https://git.sr.ht/~kurth4cker/cal13
 tasks:
