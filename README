@@ -1,0 +1,19 @@
+cal13 - 13 Months calendar
+-----
+
+I'm just trying to implement things. Run `make check` for run testsuite. Just
+running `make` will just build the binary.
+
+Involving
+---------
+Main development is done in Sourcehut[1]. You can send patches to mailing list.
+If you prefix subject with correct project name, it will trigger CI/CD to run
+tests on patchset.
+
+
+Copyright
+---------
+See LICENCES directory.
+
+
+[1]: https://sr.ht/~kurth4cker/cal13
