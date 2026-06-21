@@ -1,4 +1,6 @@
 image: alpine/latest
+sources:
+- https://git.sr.ht/~kurth4cker/cal13
 packages:
 - cmocka-dev
 tasks:
